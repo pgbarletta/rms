@@ -1,12 +1,8 @@
 #include <catch2/catch_test_macros.hpp>
 
-#include <rms/sample_library.hpp>
+#include "include/parsers.hpp"
 
-TEST_CASE("Factorials are computed with constexpr", "[factorial]")
-{
-  STATIC_REQUIRE(factorial_constexpr(0) == 1);
-  STATIC_REQUIRE(factorial_constexpr(1) == 1);
-  STATIC_REQUIRE(factorial_constexpr(2) == 2);
-  STATIC_REQUIRE(factorial_constexpr(3) == 6);
-  STATIC_REQUIRE(factorial_constexpr(10) == 3628800);
+TEST_CASE("Parm7 constants are constexpr", "[constexpr]") {
+  STATIC_REQUIRE(rms::kAmberChargeScale > 18.0);
+  STATIC_REQUIRE(rms::kParm7PointerCount == 31);
 }
