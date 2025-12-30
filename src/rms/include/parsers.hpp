@@ -14,38 +14,70 @@ constexpr double kAmberChargeScale = 18.2223;
 constexpr int kParm7PointerCount = 31;
 
 struct Parm7Pointers {
-  int natom = 0;
-  int ntypes = 0;
-  int nbonh = 0;
-  int mbona = 0;
-  int ntheth = 0;
-  int mtheta = 0;
-  int nphih = 0;
-  int mphia = 0;
-  int nhparm = 0;
-  int nparm = 0;
-  int nnb = 0;
-  int nres = 0;
-  int nbona = 0;
-  int ntheta = 0;
-  int nphia = 0;
-  int numbnd = 0;
-  int numang = 0;
-  int nptra = 0;
-  int natyp = 0;
-  int nphb = 0;
-  int ifpert = 0;
-  int nbper = 0;
-  int ngper = 0;
-  int ndper = 0;
-  int mbper = 0;
-  int mgper = 0;
-  int mdper = 0;
-  int ifbox = 0;
-  int nmxrs = 0;
-  int ifcap = 0;
-  int numextra = 0;
-  std::optional<int> ncopy;
+  // NATOM: total number of atoms.
+  std::uint16_t natom = 0;
+  // NTYPES: total number of distinct atom types (LJ types).
+  std::uint16_t ntypes = 0;
+  // NBONH: number of bonds containing hydrogen.
+  std::uint16_t nbonh = 0;
+  // MBONA: number of bonds not containing hydrogen.
+  std::uint16_t mbona = 0;
+  // NTHETH: number of angles containing hydrogen.
+  std::uint16_t ntheth = 0;
+  // MTHETA: number of angles not containing hydrogen.
+  std::uint16_t mtheta = 0;
+  // NPHIH: number of dihedrals containing hydrogen.
+  std::uint16_t nphih = 0;
+  // MPHIA: number of dihedrals not containing hydrogen.
+  std::uint16_t mphia = 0;
+  // NHPARM: currently not used.
+  std::uint16_t nhparm = 0;
+  // NPARM: currently not used.
+  std::uint16_t nparm = 0;
+  // NEXT/NNB: total number of excluded atoms.
+  std::uint16_t nnb = 0;
+  // NRES: number of residues.
+  std::uint16_t nres = 0;
+  // NBONA: MBONA plus constraint bonds.
+  std::uint16_t nbona = 0;
+  // NTHETA: MTHETA plus constraint angles.
+  std::uint16_t ntheta = 0;
+  // NPHIA: MPHIA plus constraint dihedrals.
+  std::uint16_t nphia = 0;
+  // NUMBND: number of unique bond types.
+  std::uint16_t numbnd = 0;
+  // NUMANG: number of unique angle types.
+  std::uint16_t numang = 0;
+  // NPTRA: number of unique dihedral types.
+  std::uint16_t nptra = 0;
+  // NATYP: number of atom types in parameter file (SOLTY count).
+  std::uint16_t natyp = 0;
+  // NPHB: number of distinct 10-12 hydrogen bond pair types.
+  std::uint16_t nphb = 0;
+  // IFPERT: perturbation flag (1 means perturbation info present).
+  std::uint16_t ifpert = 0;
+  // NBPER: number of bonds to be perturbed.
+  std::uint16_t nbper = 0;
+  // NGPER: number of angles to be perturbed.
+  std::uint16_t ngper = 0;
+  // NDPER: number of dihedrals to be perturbed.
+  std::uint16_t ndper = 0;
+  // MBPER: number of bonds with atoms entirely in perturbed group.
+  std::uint16_t mbper = 0;
+  // MGPER: number of angles with atoms entirely in perturbed group.
+  std::uint16_t mgper = 0;
+  // MDPER: number of dihedrals with atoms entirely in perturbed group.
+  std::uint16_t mdper = 0;
+  // IFBOX: periodic box flag (0 none, 1 orthorhombic, 2 truncated octahedron, 3 triclinic).
+  std::uint16_t ifbox = 0;
+  // NMXRS: number of atoms in the largest residue.
+  std::uint16_t nmxrs = 0;
+  // IFCAP: CAP option flag.
+  std::uint16_t ifcap = 0;
+  // NUMEXTRA: number of extra points (virtual sites).
+  std::uint16_t numextra = 0;
+  // NCOPY: number of copies for advanced simulations (optional).
+  std::optional<std::uint16_t> ncopy;
 };
 
 struct Parm7Topology {

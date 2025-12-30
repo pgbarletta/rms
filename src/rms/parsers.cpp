@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cctype>
 #include <cmath>
+#include <cstdint>
 #include <cstdlib>
 #include <fstream>
 #include <limits>
@@ -172,39 +173,39 @@ constexpr std::array<std::pair<std::string_view, Section>, 44> kSectionMap = {
   }
 
   Parm7Pointers ptr;
-  ptr.natom = values[0];
-  ptr.ntypes = values[1];
-  ptr.nbonh = values[2];
-  ptr.mbona = values[3];
-  ptr.ntheth = values[4];
-  ptr.mtheta = values[5];
-  ptr.nphih = values[6];
-  ptr.mphia = values[7];
-  ptr.nhparm = values[8];
-  ptr.nparm = values[9];
-  ptr.nnb = values[10];
-  ptr.nres = values[11];
-  ptr.nbona = values[12];
-  ptr.ntheta = values[13];
-  ptr.nphia = values[14];
-  ptr.numbnd = values[15];
-  ptr.numang = values[16];
-  ptr.nptra = values[17];
-  ptr.natyp = values[18];
-  ptr.nphb = values[19];
-  ptr.ifpert = values[20];
-  ptr.nbper = values[21];
-  ptr.ngper = values[22];
-  ptr.ndper = values[23];
-  ptr.mbper = values[24];
-  ptr.mgper = values[25];
-  ptr.mdper = values[26];
-  ptr.ifbox = values[27];
-  ptr.nmxrs = values[28];
-  ptr.ifcap = values[29];
-  ptr.numextra = values[30];
+  ptr.natom = static_cast<std::uint16_t>(values[0]);
+  ptr.ntypes = static_cast<std::uint16_t>(values[1]);
+  ptr.nbonh = static_cast<std::uint16_t>(values[2]);
+  ptr.mbona = static_cast<std::uint16_t>(values[3]);
+  ptr.ntheth = static_cast<std::uint16_t>(values[4]);
+  ptr.mtheta = static_cast<std::uint16_t>(values[5]);
+  ptr.nphih = static_cast<std::uint16_t>(values[6]);
+  ptr.mphia = static_cast<std::uint16_t>(values[7]);
+  ptr.nhparm = static_cast<std::uint16_t>(values[8]);
+  ptr.nparm = static_cast<std::uint16_t>(values[9]);
+  ptr.nnb = static_cast<std::uint16_t>(values[10]);
+  ptr.nres = static_cast<std::uint16_t>(values[11]);
+  ptr.nbona = static_cast<std::uint16_t>(values[12]);
+  ptr.ntheta = static_cast<std::uint16_t>(values[13]);
+  ptr.nphia = static_cast<std::uint16_t>(values[14]);
+  ptr.numbnd = static_cast<std::uint16_t>(values[15]);
+  ptr.numang = static_cast<std::uint16_t>(values[16]);
+  ptr.nptra = static_cast<std::uint16_t>(values[17]);
+  ptr.natyp = static_cast<std::uint16_t>(values[18]);
+  ptr.nphb = static_cast<std::uint16_t>(values[19]);
+  ptr.ifpert = static_cast<std::uint16_t>(values[20]);
+  ptr.nbper = static_cast<std::uint16_t>(values[21]);
+  ptr.ngper = static_cast<std::uint16_t>(values[22]);
+  ptr.ndper = static_cast<std::uint16_t>(values[23]);
+  ptr.mbper = static_cast<std::uint16_t>(values[24]);
+  ptr.mgper = static_cast<std::uint16_t>(values[25]);
+  ptr.mdper = static_cast<std::uint16_t>(values[26]);
+  ptr.ifbox = static_cast<std::uint16_t>(values[27]);
+  ptr.nmxrs = static_cast<std::uint16_t>(values[28]);
+  ptr.ifcap = static_cast<std::uint16_t>(values[29]);
+  ptr.numextra = static_cast<std::uint16_t>(values[30]);
   if (values.size() > kParm7PointerCount) {
-    ptr.ncopy = values[31];
+    ptr.ncopy = static_cast<std::uint16_t>(values[31]);
   }
   return ptr;
 }
