@@ -12,7 +12,7 @@ struct CliOptions {
   std::size_t sample_count = 5;
 };
 
-[[nodiscard]] std::optional<CliOptions> parse_cli(int argc, char const *const argv[]);
+std::optional<CliOptions> parse_cli(int argc, char const *const argv[]);
 
 } // namespace rms
 
